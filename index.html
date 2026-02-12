@@ -31,6 +31,54 @@
             overflow-x: hidden;
         }
 
+        /* Barra de navegación superior */
+        .top-nav {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-logo {
+            color: var(--secondary);
+            font-size: 1.5em;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            background: rgba(100, 255, 218, 0.1);
+            color: var(--secondary);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border: 1px solid transparent;
+        }
+
+        .nav-btn:hover {
+            background: rgba(100, 255, 218, 0.2);
+            transform: translateY(-2px);
+            border-color: var(--secondary);
+        }
+
+        .nav-btn.active {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
         .grain {
             position: fixed;
             top: 0;
@@ -40,7 +88,7 @@
             pointer-events: none;
             opacity: 0.03;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-            z-index: 1000;
+            z-index: 999;
         }
 
         .container {
@@ -436,6 +484,16 @@
             .projects-grid {
                 grid-template-columns: 1fr;
             }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .top-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
         }
     </style>
 </head>
@@ -443,6 +501,16 @@
     <div class="grain"></div>
     <div class="deco-circle deco-circle-1"></div>
     <div class="deco-circle deco-circle-2"></div>
+
+    <!-- Navegación Superior -->
+    <nav class="top-nav">
+        <a href="index.html" class="nav-logo">🎓 ITSAO</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-btn">📚 Materias</a>
+            <a href="curriculum.html" class="nav-btn active">👤 Currículum</a>
+            <a href="info.html" class="nav-btn">ℹ️ Información</a>
+        </div>
+    </nav>
 
     <div class="container">
         <header>
