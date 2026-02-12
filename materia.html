@@ -18,9 +18,59 @@
             padding: 20px;
         }
 
+        /* Barra de navegación superior */
+        .top-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-logo {
+            color: #667eea;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-btn:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .nav-btn.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
         .container {
             max-width: 1000px;
             margin: 0 auto;
+            padding: 0 20px 40px 20px;
+        }
+
+        .content-wrapper {
             background: white;
             border-radius: 20px;
             padding: 40px;
@@ -188,19 +238,40 @@
         }
 
         @media (max-width: 768px) {
-            .container {
+            .content-wrapper {
                 padding: 20px;
             }
 
             .header h1 {
                 font-size: 1.8em;
             }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .top-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <a href="index.html" class="back-btn">← Volver al inicio</a>
+        <!-- Navegación Superior -->
+        <nav class="top-nav">
+            <a href="index.html" class="nav-logo">🎓 ITSAO</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-btn active">📚 Materias</a>
+                <a href="curriculum.html" class="nav-btn">👤 Currículum</a>
+                <a href="info.html" class="nav-btn">ℹ️ Información</a>
+            </div>
+        </nav>
+
+        <div class="content-wrapper">
+            <a href="index.html" class="back-btn">← Volver al inicio</a>
         
         <div class="header">
             <h1>💻 Desarrollo Full Stack</h1>
@@ -351,7 +422,8 @@
                 📥 Descargar PDF Completo
             </a>
         </div>
-    </div>
+        </div><!-- Fin content-wrapper -->
+    </div><!-- Fin container -->
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
